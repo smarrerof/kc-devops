@@ -1,5 +1,5 @@
 # Set the base image to Ubuntu
-FROM ubuntu
+FROM ubuntu:16.04
 
 # File Author / Maintainer
 LABEL Author="Sergio Marrero" \
@@ -27,6 +27,9 @@ RUN apt-get install -y nginx
 
 # Copy a configuration file from the current directory
 # ADD nginx.conf /etc/nginx/
+
+# Copy nodepop-web that is served by IP
+ADD ./nodepop-web /var/www/html
 
 # Append "daemon off;" to the beginning of the configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
