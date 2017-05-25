@@ -2,7 +2,9 @@
 FROM ubuntu
 
 # File Author / Maintainer
-MAINTAINER Sergio Marrero (@smarrerof)
+LABEL Author="Sergio Marrero" \
+      Nick="smarrero" \
+      Description="Práctica de DevOps del V KeepCoding Startup Engineering Master Bootcamp (2017)"
 
 #################################################
 # Install Nginx 
