@@ -29,7 +29,8 @@ RUN apt-get install -y nginx
 # ADD nginx.conf /etc/nginx/
 
 # Copy nodepop-web that is served by IP
-ADD ./nodepop-web /var/www/html
+#ADD ./nodepop-web /var/www/html
+VOLUME /var/www/html
 
 # Append "daemon off;" to the beginning of the configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf

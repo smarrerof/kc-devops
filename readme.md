@@ -7,6 +7,11 @@ Práctica de DevOps del V KeepCoding Startup Engineering Master Bootcamp (2017).
 docker build -t nodepop .
 docker run --name nodepop_run -p 80:80 -i -t nodepop
 docker run --name nodepop_run -p 80:80 -i -t nodepop /bin/bash
+docker run --name nodepop_run -p 80:80 -i -t smarrerof/nodepop:volume bin/bash
+
+docker run --name nodepop_run -v d:/html:/var/www/html -p 80:80 -i -t smarrerof/nodepop:volume bin/bash
+docker run --name nodepop_run -v d:/html:/var/www/html -p 80:80 -d smarrerof/nodepop:volume
+
 docker container prune
 ```
 ### Publicar un contenedor
