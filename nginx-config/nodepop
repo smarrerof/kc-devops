@@ -1,0 +1,18 @@
+server {
+        listen 8080;
+        listen [::]:8080;
+        server_name localhost;
+
+        location ~ ^/(docs/|images/|stylesheets/) {
+                root /home/web/nodepop/public;
+                add_header X-Owner smarrerof;
+        }
+
+        location / {
+                proxy_set_header Host $http_host;
+                proxy_pass http://127.0.0.1:3000/;
+                proxy_redirect off;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+        }
+}
