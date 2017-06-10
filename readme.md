@@ -7,7 +7,7 @@ Esta es la parte opcional de la práctica donde se realizará el mismo despliegu
 Se ha utilizado la plataforma Azure para el despliegue de la aplicación y en la máquina virtual utilizada se ha desplegado la aplicación sobre Docker. La imagen creada para crear el contenedor ha sido creada siguiendo el Dockerfile que se encuentra en este mismo repositorio.
 
 * Ejercicio 1: El dominio utilizado es el provisto por Azure (kc-devops-docker.westeurope.cloudapp.azure.com) o por la IP fija asignada igualmente por Azure (168.63.111.54). Dado que no hemos usado dominios o subdominios propios hemos usado el puerto 8080 para servir este contenido.
-  * Archivo estático: [Hojas de estilo](kc-devops-docker.westeurope.cloudapp.azure.com:8080/stylesheets/style.css)
+  * Archivo estático: [Hojas de estilo](http://kc-devops-docker.westeurope.cloudapp.azure.com:8080/stylesheets/style.css)
   * Archivo estático: [Imagen](http://168.63.111.54:8080/images/ads/bici.png)
   * Llamada a la API: (POST) [users/authenticate](http://168.63.111.54:8080/apiv1/users/authenticate)
   
@@ -47,8 +47,8 @@ docker run --name nodepop_dev -v c:/docker/html:/var/www/html -v c:/docker/nodep
 
 VM (UBUNTU)
 ```
-sudo docker run -v /home/web/html:/var/www/html -v c:/docker/nodepop:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -ti smarrerof/nodepop bin/bash
-sudo docker run --name nodepop_dev --restart always -v /home/web/html:/var/www/html -v c:/docker/nodepop:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -tid smarrerof/nodepop 
+sudo docker run -v /home/web/html:/var/www/html -v /home/web/nodepop:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -ti smarrerof/nodepop bin/bash
+sudo docker run --name nodepop_dev --restart always -v /home/web/html:/var/www/html -v /home/web/nodepop:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -tid smarrerof/nodepop 
 ```
 
 ### Construir una imagen
