@@ -23,6 +23,7 @@ Otros aspectos a tener en cuenta son que los archivos estáticos son servidos po
 ### Lista de tareas por hacer (en un futuro no muy lejano...)
 * Todas las llamadas a http deberían ser redirigidas a https
 * Se debería usar algun dominio/subdmonio propio para el evitar el uso del puerto 8080.
+* Instalar PM2 para controlar la ejecución de nodepop.
 * Todos los servicios corren en el mismo contenedor. Pese a que para el objetivo de esta práctica es más que suficiente, no es una buena práctica ya que nos permite el escalado de la aplicación. Para solucionarlo habría que hacer un depliegue usando varios contenedor usando para ellos [Docker Compose](https://docs.docker.com/compose/). Una primera aproximación sería
   * Contenedor para NGINX (en este contenedor podríamos servir el contenido estático)
   * Contenedor para servir la aplicacion con node
