@@ -1,10 +1,10 @@
 #!/bin/sh
-service nginx restart
-mongo
 
 # Reinstall node_modules
-mkdir -p /home/web/nodepop/node_modules
-npm install --prefix /home/web/nodepop
+mkdir -p /var/www/nodepop/node_modules
+npm install --prefix /var/www/nodepop
 
-# Start node app
-npm start --prefix /home/web/nodepop
+# Start services
+service nginx restart &
+mongod &
+npm start --prefix /var/www/nodepop

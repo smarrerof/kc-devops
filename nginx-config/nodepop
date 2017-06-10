@@ -4,7 +4,7 @@ server {
         server_name localhost;
 
         location ~ ^/(docs/|images/|stylesheets/) {
-                root /home/web/nodepop/public;
+                root /var/www/nodepop/public;
                 add_header X-Owner smarrerof;
         }
 

@@ -10,17 +10,17 @@ Práctica de DevOps del V KeepCoding Startup Engineering Master Bootcamp (2017).
 ### Ejecutar una imagen
 DEV (WIN)
 ```
-docker run -v c:/docker/html:/var/www/html -p 80:80 -p 8080:8080 -ti nodepop bin/bash
-docker run -v c:/docker/html:/var/www/html -p 80:80 -p 8080:8080 -tid nodepop
+docker run -v c:/docker/html:/var/www/html -p 80:80 -p 8080:8080 -p 27017:27017 -ti nodepop bin/bash
+docker run -v c:/docker/html:/var/www/html -p 80:80 -p 8080:8080 -p 27017:27017 -tid nodepop
 
-docker run --name nodepop_dev -v c:/docker/html:/var/www/html -p 80:80 -p 8080:8080 -ti nodepop bin/bash
-docker run --name nodepop_dev -v c:/docker/html:/var/www/html -p 80:80 -p 8080:8080 -tid nodepop
+docker run -v c:/docker/html:/var/www/html -v c:/docker/nodepop:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -ti nodepop bin/bash
+docker run --name nodepop_dev -v c:/docker/html:/var/www/html -v c:/docker/nodepop:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -tid nodepop
 ```
 
 VM (UBUNTU)
 ```
-sudo docker run --name nodepop_dev -v /home/web/html:/var/www/html -p 80:80 -p 8080:8080 -p 27017:27017 -ti smarrerof/nodepop bin/bash
-sudo docker run --name nodepop_dev --restart always -v /home/web/html:/var/www/html -p 80:80 -p 8080:8080 -p 27017:27017 -tid smarrerof/nodepop 
+sudo docker run -v /home/web/html:/var/www/html -v c:/docker/nodepop:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -ti smarrerof/nodepop bin/bash
+sudo docker run --name nodepop_dev --restart always -v /home/web/html:/var/www/html -v c:/docker/nodepop:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -tid smarrerof/nodepop 
 ```
 
 ### Construir una imagen
