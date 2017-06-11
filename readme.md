@@ -19,7 +19,7 @@ Otros aspectos a tener en cuenta son que los archivos estáticos son servidos po
 
 Si se quiere probar la imagen de nodepop, esta se encuentra alojada en el [hub de docker](https://hub.docker.com/r/smarrerof/nodepop/). Para arrancar la imagen tan solo hace falta ejecturar el siguiente comando en nuestra máquina
 ```
-sudo docker run --name <name> --restart always -v <host html path>:/var/www/html -v <host node pop path>:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -tid smarrerof/nodepop
+sudo docker run --name <name> --restart always -v <host html path>:/var/www/html -v <host nodepop path>:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -tid smarrerof/nodepop
 ```
 
 ### Otros aspectos del despliegue
@@ -34,10 +34,11 @@ sudo docker run --name <name> --restart always -v <host html path>:/var/www/html
   * Contenedor para servir la aplicacion con node
   * Contenedor para MongoDB.
   
-  Se puede ver una primera aproximación a este enfoque en el fichero docker-compose.yml que se encuentra en ese mismo repositorio.
+  Se puede ver una primera aproximación a este enfoque en el fichero [docker-compose.yml](https://github.com/smarrerof/kc-devops/blob/master/docker-compose.yml) que se encuentra en ese mismo repositorio.
 
 ## Comandos útiles usando en el desarrollo de esta práctica. 
 Están más que nada como recordatorio en usos futuros :) 
+
 ### Tareas comunes
 ```
 .\bin\dos2unix.exe .\start.sh
