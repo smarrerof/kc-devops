@@ -4,7 +4,7 @@ Toda la información referente a la API utilizada en est despliegue puede ser co
 Esta es la parte opcional de la práctica donde se realizará el mismo despliegue pero utilizado [Docker](https://www.docker.com/).
 
 ## Despliegue
-Se ha utilizado la plataforma Azure para el despliegue de la aplicación y en la máquina virtual utilizada se ha desplegado la aplicación sobre Docker. La imagen creada para crear el contenedor ha sido creada siguiendo el Dockerfile que se encuentra en este mismo repositorio.
+Se ha utilizado la plataforma Azure para el despliegue de la aplicación y en la máquina virtual utilizada se ha desplegado la aplicación sobre Docker. La imagen creada para crear el contenedor ha sido creada siguiendo el [Dockerfile](https://github.com/smarrerof/kc-devops/blob/master/Dockerfile) que se encuentra en este mismo repositorio.
 
 * Ejercicio 1: El dominio utilizado es el provisto por Azure (kc-devops-docker.westeurope.cloudapp.azure.com) o por la IP fija asignada igualmente por Azure (168.63.111.54). Dado que no hemos usado dominios o subdominios propios hemos usado el puerto 8080 para servir este contenido.
   * Archivo estático: [Hojas de estilo](http://kc-devops-docker.westeurope.cloudapp.azure.com:8080/stylesheets/style.css)
@@ -24,10 +24,12 @@ Otros aspectos a tener en cuenta son que los archivos estáticos son servidos po
 * Todas las llamadas a http deberían ser redirigidas a https
 * Se debería usar algun dominio/subdmonio propio para el evitar el uso del puerto 8080.
 * Instalar PM2 para controlar la ejecución de nodepop.
-* Todos los servicios corren en el mismo contenedor. Pese a que para el objetivo de esta práctica es más que suficiente, no es una buena práctica ya que nos permite el escalado de la aplicación. Para solucionarlo habría que hacer un depliegue usando varios contenedor usando para ellos [Docker Compose](https://docs.docker.com/compose/). Una primera aproximación sería
+* Todos los servicios corren en el mismo contenedor. Pese a que para el objetivo de esta práctica es más que suficiente, no es una buena práctica ya que no nos permite el escalado de la aplicación. Para solucionarlo habría que hacer un depliegue usando varios contenedor usando para ellos [Docker Compose](https://docs.docker.com/compose/). Una primera aproximación sería
   * Contenedor para NGINX (en este contenedor podríamos servir el contenido estático)
   * Contenedor para servir la aplicacion con node
   * Contenedor para MongoDB.
+  
+  Se puede ver una primera aproximación a este enfoque en el fichero docker-compose.yml que se encuentra en ese mismo repositorio.
 
 ## Comandos útiles usando en el desarrollo de esta práctica. 
 Están más que nada como recordatorio en usos futuros :) 
@@ -67,4 +69,9 @@ docker push smarrerof/nodepop
 ### Misc
 ```
 docker container prune
+```
+
+### Docker Compose
+```
+docker-compose up
 ```
