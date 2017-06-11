@@ -17,6 +17,11 @@ Otros aspectos a tener en cuenta son que los archivos estáticos son servidos po
   * Página estática: [http://kc-devops-docker.westeurope.cloudapp.azure.com](http://kc-devops-docker.westeurope.cloudapp.azure.com)
   * Página estática: [http://168.63.111.54](http://168.63.111.54)
 
+Si se quiere probar la imagen de nodepop, esta se encuentra alojada en el [hub de docker](https://hub.docker.com/r/smarrerof/nodepop/). Para arrancar la imagen tan solo hace falta ejecturar el siguiente comando en nuestra máquina
+```
+sudo docker run --name <name> --restart always -v <host html path>:/var/www/html -v <host node pop path>:/var/www/nodepop -p 80:80 -p 8080:8080 -p 27017:27017 -tid smarrerof/nodepop
+```
+
 ### Otros aspectos del despliegue
 * Por seguridad se ha cerrado el puerto 22 (SSH)
 
