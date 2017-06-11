@@ -9,7 +9,7 @@ Se ha utilizado la plataforma Azure para el despliegue de la aplicación y en la
 * Ejercicio 1: El dominio utilizado es el provisto por Azure (kc-devops-docker.westeurope.cloudapp.azure.com) o por la IP fija asignada igualmente por Azure (168.63.111.54). Dado que no hemos usado dominios o subdominios propios hemos usado el puerto 8080 para servir este contenido.
   * Archivo estático: [Hojas de estilo](http://kc-devops-docker.westeurope.cloudapp.azure.com:8080/stylesheets/style.css)
   * Archivo estático: [Imagen](http://168.63.111.54:8080/images/ads/bici.png)
-  * Llamada a la API: (POST) [users/authenticate](http://168.63.111.54:8080/apiv1/users/authenticate)
+  * Llamada a la API: (GET) [ads/tags](http://168.63.111.54:8080/apiv1/ads/tags) -> Esta llamada devuelve NotAuthorized. Para poder ejecutarla correctamente primero hay que autenticarse. Para eso es recomendable explorar la sección [Nodepop API](https://github.com/smarrerof/kc-nodejs) o la documentación de [API](http://kc-devops-docker.westeurope.cloudapp.azure.com:8080/docs)
   
 Otros aspectos a tener en cuenta son que los archivos estáticos son servidos por NGINX y en la respuesta de la petición se añade la cabecera x-owner: smarrerof. y que la llamada a la API es respondida por Express.
 
